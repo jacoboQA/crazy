@@ -13,8 +13,8 @@ public class freeRangeTestersSteps {
         landingPage.navigateToWeb();
     }
 
-    @When("I go to a section using the navigation bar")
-    public void navigationBarUse() {
-        landingPage.clickOnNavigationBar();
+    @When("I go to {word} using the navigation bar")
+    public void navigationBarUse(String section) {
+        landingPage.clickOnNavigationBar(section);
     }
 }
