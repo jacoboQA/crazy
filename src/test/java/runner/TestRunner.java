@@ -12,9 +12,10 @@ import pages.BasePage;
         glue ="steps",
         plugin = {"pretty","html:target/cucumber-reports"})
 
-        public class TestRunner {
-@AfterClass
-public static void cleanDriver(){
-        BasePage.closeBrowser();
-}
+
+public class TestRunner {
+        @AfterClass
+        public static void cleanDriver(){
+                BasePage.closeBrowser();
+        }
 }
