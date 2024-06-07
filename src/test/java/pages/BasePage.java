@@ -39,4 +39,9 @@ public class BasePage {
     public void clickElement(String locator){
         Find(locator).click();
     }
+
+    public void write(String locator, String keysToSend){
+        Find(locator).clear();
+        Find(locator).sendKeys(keysToSend);
+    }
 }
