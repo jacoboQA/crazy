@@ -13,7 +13,7 @@ Feature: Navigation bar
 #     #     | Mentorías  |
 #     #     | Newsletter |
 
-Scenario: User can log in
+Scenario: Courses are presented correctly to pontential customers
     Given I navigate to www.freerangetesters.com
-    When I click on entrar
-    And Enter my information
+    When I go to Cursos using the navigation bar
+    And I select introducción al Testing

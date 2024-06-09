@@ -2,7 +2,7 @@ package pages;
 
 public class mainPage extends BasePage{
     
-    private String entrarLink = "//a[@class='sc-iKOmoZ lhJKpf']";
+    private String cursosLink = "//a[normalize-space()='Cursos']";
     private String userInput = "//input[@id='email']";
     private String userPass = "//input[@id='password']";
 
@@ -15,8 +15,8 @@ public class mainPage extends BasePage{
     }
 
     
-    public void clickOnEntrar() {
-        clickElement(entrarLink);
+    public void navigateToCursos() {
+        clickElement(cursosLink);
     }
 
     public void myUser() {
