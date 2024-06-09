@@ -3,30 +3,38 @@ package steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.PaginaCursos;
 import pages.PaginaFundamentosTesting;
+import pages.checkoutPage;
 import pages.mainPage;
+import java.util.*;
+
+import org.testng.Assert;
 
 public class freeRangeTestersSteps {
     
     mainPage landingPage = new mainPage();
     PaginaCursos cursosPage = new PaginaCursos();
     PaginaFundamentosTesting fundamentosPage = new PaginaFundamentosTesting();
+    checkoutPage paginaRegistro = new checkoutPage();
 
     @Given("I navigate to www.freerangetesters.com")
     public void iNavigateToFRT() {
         landingPage.navigateToWeb();
     }
 
-    @When("I go to Cursos using the navigation bar")
-    public void navigateToCurso() {
-        landingPage.navigateToCursos();
+    @When("I select Elegir Plan")
+    public void selectElegirPlan() {
+        landingPage.clickElegirPlan();
     }
 
-    @And("I select introducción al Testing")
-    public void navigateToFundamentos(){
-        cursosPage.clickFundamentosTestingLink();
-        fundamentosPage.clickIntroduccionTestingLink();
+    @Then("I can validate the options in the checkout page")
+    public void validateCheckoutPlans(){
+        List<String> lista = paginaRegistro.returnPlanDropdowValues();
+        List<String> listaEsperada = Arrays.asList("Academia: $16.99 / mes • 12 productos","Academia: $176 / año • 12 productos","Free: Gratis • 3 productos");
+        Assert.assertEquals(listaEsperada, lista);
     }
+
 }
