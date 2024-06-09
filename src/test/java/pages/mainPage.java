@@ -2,9 +2,8 @@ package pages;
 
 public class mainPage extends BasePage{
     
-    private String entrarLink = "//a[@class='sc-iKOmoZ lhJKpf']";
-    private String userInput = "//input[@id='email']";
-    private String userPass = "//input[@id='password']";
+    private String cursosLink = "//a[normalize-space()='Cursos' and @href]";
+    private String planLink = "//a[normalize-space()='Elegir Plan' and @href]";
 
     public mainPage() {
         super(driver);
@@ -15,16 +14,12 @@ public class mainPage extends BasePage{
     }
 
     
-    public void clickOnEntrar() {
-        clickElement(entrarLink);
+    public void navigateToCursos() {
+        clickElement(cursosLink);
     }
 
-    public void myUser() {
-        write(userInput, "hola@bolas.com");
-    }
-
-    public void myPass() {
-        write(userPass, "1234");
+    public void clickElegirPlan(){
+        clickElement(planLink);
     }
 }
 
