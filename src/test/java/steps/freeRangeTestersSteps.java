@@ -1,7 +1,7 @@
 package steps;
 
 
-import io.cucumber.java.en.And;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,11 +10,12 @@ import pages.PaginaFundamentosTesting;
 import pages.checkoutPage;
 import pages.mainPage;
 import java.util.*;
-
-import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 
 public class freeRangeTestersSteps {
     
+    SoftAssert soft = new SoftAssert();
+
     mainPage landingPage = new mainPage();
     PaginaCursos cursosPage = new PaginaCursos();
     PaginaFundamentosTesting fundamentosPage = new PaginaFundamentosTesting();
@@ -34,7 +35,8 @@ public class freeRangeTestersSteps {
     public void validateCheckoutPlans(){
         List<String> lista = paginaRegistro.returnPlanDropdowValues();
         List<String> listaEsperada = Arrays.asList("Academia: $16.99 / mes • 12 productos","Academia: $176 / año • 12 productos","Free: Gratis • 3 productos");
-        Assert.assertEquals(listaEsperada, lista);
+        soft.assertEquals(listaEsperada, lista);
+        soft.assertAll();
     }
 
 }
